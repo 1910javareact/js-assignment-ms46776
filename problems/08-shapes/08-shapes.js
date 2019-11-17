@@ -22,4 +22,73 @@ Example for printShape("Diamond", 5, "*");
 */
 function printShape(shape, height, character) {
   
-}
+    switch (shape) {
+      case "Square":
+        
+        for(let i = 0; i < height; i++){
+          let temp = ""
+          
+          for(let j = 0;j < height; j++){
+            temp += character
+          }
+          console.log(temp);
+        }
+        break;
+      case "Triangle":
+        
+        for(let i = 0; i < height; i++){
+          let temp = ""
+          
+          for(let j = i;j > -1; j--){
+            temp += character
+          }
+          console.log(temp);
+        }
+        break;
+      case "Diamond":
+        
+        let star = 0
+        
+        let half = Math.floor(height/2) +1
+      
+        let secHalf = Math.floor(height/2)
+        
+        let spaces = half - 1
+        
+        for(let i = 0; i < half; i++){
+          let temp = ""
+          
+          for(let j = 0;j < spaces; j++){
+            temp += " "
+          }
+          
+          for(let j = 0;j <= star; j++){
+            temp += character
+          }
+          
+          spaces--
+          star += 2
+          console.log(temp);
+        }
+        
+        spaces = 0
+        star = half
+        
+        for(let i = secHalf; i > 0; i--){
+          let temp = " "
+          
+          for(let j = 0;j < spaces; j++){
+            temp += " "
+          }
+          
+          for(let j = 0;j < star; j++){
+            temp += character
+          }
+        
+          spaces++
+          star -= 2
+          console.log(temp);
+        }
+        break;
+    }
+  }
